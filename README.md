@@ -15,3 +15,11 @@ and then i do:
 ```bash
 sdir ~/onedrive -d 4
 ```
+
+or just 
+
+```bash
+sdir
+```
+
+works
