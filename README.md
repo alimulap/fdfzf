@@ -9,3 +9,9 @@ function sfile() {
     xdg-open $(fdfzf -t f "$@")
 }
 ```
+
+and then i do:
+
+```bash
+sdir ~/onedrive -d 4
+```
