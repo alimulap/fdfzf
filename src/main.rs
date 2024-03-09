@@ -1,7 +1,7 @@
 use std::{io::{stdout, Write}, path::{Path, PathBuf}, process};
 
 fn main() {
-    let matches = clap::Command::new("sdir")
+    let matches = clap::Command::new("fdfzf")
         .arg(
             clap::Arg::new("path")
                 .help("The path to the directory")
@@ -23,13 +23,13 @@ fn main() {
     let path_str = matches.get_one::<String>("path").unwrap_or(&"~".to_string()).clone();
     let path = expand_tilde(path_str.clone()).unwrap();
     if path.exists() {
-        let depth = matches.get_one::<&str>("depth").unwrap_or(&"4");
+        let depth = matches.get_one::<String>("depth").unwrap_or(&"4".to_string()).clone();
         let fd_type = matches.get_one::<String>("type").unwrap_or(&"d".to_string()).clone();
         let fd = process::Command::new("fd")
             .args(&[
                 ".",
                 "--type", fd_type.as_str(),
-                "--max-depth", depth,
+                "--max-depth", depth.as_str(),
                 path.as_os_str().to_str().unwrap()
             ])
             .stdout(process::Stdio::piped())
