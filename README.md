@@ -46,4 +46,3 @@ also there is `-H` to show hidden files.
 fdfzf -H
 ```
 
-```bash
