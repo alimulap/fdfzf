@@ -2,11 +2,17 @@ I use this for bash function like this:
 
 ```bash 
 function sdir() {
-    cd $(fdfzf -t d "$@")
+    local SELECTED=$(fdfzf -t d "$@")
+    if [ -n "$SELECTED" ]; then
+        cd "$SELECTED"
+    fi
 }
 
 function sfile() {
-    xdg-open $(fdfzf -t f "$@")
+    local SELECTED=$(fdfzf -t f "$@")
+    if [ -n "$SELECTED" ]; then
+        kde-open "$SELECTED"
+    fi
 }
 ```
 
@@ -23,3 +29,21 @@ sdir
 ```
 
 works
+
+there is also config
+
+```bash
+fdfzf -c ~/config.toml -p custom_name_literally_anything
+```
+
+`-c` needs to be a path to a toml file, and `-p` is a profile name define inside the config file.
+
+if not supplied, fdfzf will search for `~/.config/fdfzf/config.toml` and use the `default` profile.
+
+also there is `-H` to show hidden files.
+
+```bash
+fdfzf -H
+```
+
+```bash

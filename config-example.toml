@@ -1,0 +1,11 @@
+[profiles.default]
+path = "/mnt/hdp1/"
+depth = "8"
+fd_type = "d"
+hidden = true
+
+[profiles.custom_name_literally_anything]
+path = "/mnt/hdp2/"
+depth = "1"
+fd_type = "f"
+# hidden field is missing, so it will be read from the default profile
