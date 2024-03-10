@@ -33,10 +33,10 @@ works
 there is also config
 
 ```bash
-fdfzf -c ~/config.toml -p custom_name_literally_anything
+fdfzf -c ./config-example.toml -p custom_name_literally_anything
 ```
 
-`-c` needs to be a path to a toml file, and `-p` is a profile name define inside the config file.
+`-c` needs to be a path to a toml file, and `-p` is a profile name define inside the config file. You can se the [config example here](https://github.com/alimulap/fdfzf/blob/main/config-example.toml).
 
 if not supplied, fdfzf will search for `~/.config/fdfzf/config.toml` and use the `default` profile.
 
